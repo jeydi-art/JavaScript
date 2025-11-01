@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hw 3.8</title>
+    <style>
+        .users-box {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 20px auto;
+            max-width: 900px;
+        }
+        h1 {
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<script src="users.js"></script>
+<script>
+document.write('<h1>Users information</h1>');
+
+// 1) открыть контейнер
+document.write('<div class="users-box">');         // сюда добавляю карточки через JS
+
+// 2) вписать карточки внутрь контейнера
+    for (const user of usersList) {
+        document.write(`
+        <div class="user-block">
+          <h2>${user.id} – ${user.name} – ${user.username}</h2>
+          <h3>${user.email} – ${user.phone}</h3>
+          <div class="address-block">
+            <p>City - ${user.address.city}</p>
+            <p>Street - ${user.address.street}</p>
+            <p>Suite - ${user.address.suite}</p>
+            <p>Zip code - ${user.address.zipcode}</p>
+          </div>
+        </div>
+      `);
+    }
+
+// 3) закрыть контейнер
+    document.write('</div>');
+</script>
+</body>
+</html>
