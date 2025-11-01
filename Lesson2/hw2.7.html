@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Дано змінну time яка рівна числу від 0 до 59.
+    // Потрібно написати код, який перевірить, до якої четверті години попадає число
+    //(в першу, другу, третю або четверту частину години).
+
+
+    let time = 38;      //подставить любое значение
+
+    if (time >=0 && time < 15) {            //проверяет, попадает ли значение в первую четверть (0–14 включительно).
+        console.log("first quarter");
+    }
+    else if (time >=15 && time < 30) {      //вторая четверть (15–29).
+        console.log("second quarter");
+    }
+    else if (time >=30 && time < 45) {      //третья четверть (30–44)
+        console.log("third quarter");
+    }
+    else if (time >=45 && time < 60) {      //четвёртая четверть (45–59)
+        console.log("fourth quarter");
+    }
+
+
+
+</script>
+
+</body>
+</html>

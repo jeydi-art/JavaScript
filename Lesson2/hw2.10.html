@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Користувач вводить або має два числа.-->
+
+<!--Потрібно знайти та вивести максимальне число з тих двох.-->
+
+<!--Також потрібно врахувати, коли введені рівні числа.-->
+
+<script>
+
+    let a = +prompt("Enter first number:");
+    let b = +prompt("Enter second number:");
+
+    if (a > b) {
+        console.log("The larger number is " + a);
+    }
+
+    else if (b > a) {
+        console.log("The larger number is " + b);
+    }
+    else if (a===b) {
+        //(последняя проверка a === b здесь не нужна,
+        // потому что если число не больше и не меньше,
+        // значит оно обязательно равно второму
+        console.log("Both numbers are equal");
+    }
+
+
+    // Более короткий и логичный вариант (else — это “все остальные случаи”,
+    // и он автоматически покроет ситуацию, когда a === b.):
+
+    // if (a > b) {
+    //     console.log("The larger number is " + a);
+    // } else if (b > a) {
+    //     console.log("The larger number is " + b);
+    // } else {
+    //     console.log("Both numbers are equal");
+    // }
+
+
+
+</script>
+</body>
+</html>
