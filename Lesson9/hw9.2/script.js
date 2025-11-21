@@ -1,21 +1,24 @@
-const ul = document.createElement('ul');
-const menuItems = ['Main', 'Products', 'About Us', 'Contacts'];
+const arr = ['Main', 'Products', 'About Us', 'Contacts'];
+const menu = document.createElement('ul');
+menu.classList.add('menu');
 
-for  (let i=0; i < menuItems.length; i++) {
+for (const item of arr) {
     const li = document.createElement('li');
-    li.textContent = menuItems[i];
-    ul.appendChild(li);
+    li.textContent = item;
+    menu.appendChild(li);
 }
-document.body.appendChild(ul);
+document.body.appendChild(menu);
 
 
 
-// второй вариант
-// const ul = document.createElement('ul');
-// const items = ['Main', 'Products', 'About Us', 'Contacts'];
-// for  (let i=0; i < items.length; i++) {
+//второй вариант (если нужна нумерация)
+
+// const menu = document.createElement('ul');
+// const menuItems = ['Main', 'Products', 'About Us', 'Contacts'];
+//
+// for  (let i=0; i < menuItems.length; i++) {
 //     const li = document.createElement('li');
-//     li.textContent = items[i];
-//     ul.appendChild(li);
+//     li.textContent = menuItems[i];
+//     menu.appendChild(li);
 // }
-// document.body.appendChild(ul);
+// document.body.appendChild(menu);
