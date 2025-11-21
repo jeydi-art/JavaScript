@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*контейнер*/
+.courses-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 30px auto;
+    max-width: 500px;
+}
+/*карточка*/
+.course-card {
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1.2fr 2fr;
+    grid-template-areas:
+    "title title"
+    "month hour"
+    "modules modules";
+    gap: 10px;
+}
+
+.card-title {
+    grid-area: title;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.course-month {
+    grid-area: month;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.course-hour {
+    grid-area: hour;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 18px;
+}
+
+/*модули*/
+.course-modules {
+    grid-area: modules;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.modules-title {
+    margin-bottom: 8px;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.modules-list {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.modules-list li {
+    margin-bottom: 4px;
+    font-size: 17px;
+}
