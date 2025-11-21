@@ -1,0 +1,29 @@
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+.wrap{
+   color: #aee8a7;
+}
+
+.collapse{
+    background: #1c8585;
+}
+
+.alpha{
+    font-size: 24px;
+}
+
+.beta{
+    width: 50%;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #6495ed;
+}
