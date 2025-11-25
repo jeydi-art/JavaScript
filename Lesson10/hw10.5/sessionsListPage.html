@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LhSfdhM3</title>
+</head>
+<body>
+<!--создаем контейнер-->
+<h2>Sessions History</h2>
+<div id="sessionsContainer"></div>
+
+<script>
+    const sessionList = JSON.parse(localStorage.getItem('sessionList'));
+//добавляем контейнер в JS
+    const container = document.getElementById('sessionsContainer');
+    //iter+DOM
+    for (const session of sessionList) {
+        const div = document.createElement('div');
+        div.innerText = new Date(session).toLocaleString();
+        container.appendChild(div);
+    }
+</script>
+</body>
+</html>
