@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>#kUSgFqWY</title>
+</head>
+<!--–
+Створити 3 інпута та кнопку. Один визначає кількість рядків,
+другий – кількість ячеєк, третій – вміст ячеєк.
+
+При натисканні кнопки вся ця інформація зчитується і формується табличка з відповідним вмістом.
+-->
+<body>
+<form name="tableGeneratorForm">
+<!--    количество строк-->
+    <input type="number" name="lines" placeholder="Line Number">
+<!--    количество столбцов-->
+    <input type="number" name="cells" placeholder="Cell Number">
+<!--    содержимое ячейки (текст)-->
+    <input type="text" name="data" placeholder="Text Data">
+    <button>Generate</button>
+</form>
+<!--место, куда будет выводиться таблица-->
+<table id="table"></table>
+
+<script src="script.js"></script>
+
+</body>
+</html>
