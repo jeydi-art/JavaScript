@@ -8,7 +8,7 @@ if (lastUpdateTime) {
 
     // проверяем, прошло ли 10 секунд
     if (currentTime - lastUpdateTime >= 10000) {
-        currentNumber += 10;
+        currentPrice += 10;
     }
 }
 
