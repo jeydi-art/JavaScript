@@ -9,6 +9,7 @@ function addToLocalStorage(arrayName, objToAdd) {
     if (typeof objToAdd === 'object') {
         array.push(objToAdd);
     }
+
 //функция сохраняет обновлённый массив обратно в localStorage
     localStorage.setItem(arrayName, JSON.stringify(array));
 }
