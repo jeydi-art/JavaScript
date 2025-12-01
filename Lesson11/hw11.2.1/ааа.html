@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+
+        .target {
+            div {
+                background: silver;
+                margin-bottom: 10px;
+            }
+
+            img {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="target"></div>
+<script>
+
+    // #whXxOBlYS0H
+    // - взяти https://dummyjson.com/docs/recipes та вивести інформацію про всі рецепти. Інгредієнти повинні бути список під час відображення.
+
+//    const url = new URL('https://dummyjson.com/recipes');
+//    url.searchParams.set('limit', '2');
+
+    const target = document.getElementsByClassName('target')[0];
+
+//    fetch(url)
+//        .then(value => value.json())
+//        .then(recipesObject => {
+
+            fetch('https://dummyjson.com/recipes')
+                .then(value => value.json())
+                .then(recipesObject => {
+
+//const {recipes} = recipesObject; — деструктуризация: берёшь только массив recipes
+            const {recipes} = recipesObject;
+
+//Перебираешь все рецепты (for (const recipe of recipes) — каждый recipe — это один объект рецепта)
+            for (const recipe of recipes) {
+                console.log(recipe);
+//recipeDiv — общий контейнер/карточка для конкретного рецепта
+                const recipeDiv = document.createElement('div');
+
+//Перебор всех ключей объекта рецепта (recipeKey — это имя поля, например: "id", "name", "ingredients" и тд
+//То есть ты не пишешь имена полей руками, а универсально обходишь весь объект.
+                for (const recipeKey in recipe) {
+//Array.isArray(recipe[recipeKey]) — проверяешь, является ли значение по ключу массивом.
+//  Если массив → рисуешь список.
+//  Если НЕ массив → выводишь просто key: value.
+                    if (Array.isArray(recipe[recipeKey])) {
+//Создаёшь обёртку arrayAndTitleDiv — блок для заголовка + списка
+                        const arrayAndTitleDiv = document.createElement('div');
+                        const title = document.createElement('div');
+
+//Если recipeKey === 'ingredients' → текст будет ingredients:
+//Если recipeKey === 'instructions' → instructions:
+//Если tags → tags:, и т.д.
+                        title.innerText = `${recipeKey}:`;
+//Создаёшь нумерованный список ol
+                        const ol = document.createElement('ol');
+//Берёшь сам массив array = recipe[recipeKey]
+                        const array = recipe[recipeKey];
+//Для каждого item в массиве:
+//создаёшь li
+//вставляешь в него текст item
+//добавляешь в ol.
+                        for (const item of array) {
+                            const li = document.createElement('li');
+                            li.innerText = item;
+                            ol.appendChild(li);
+                        }
+
+//Вставляешь заголовок и список в arrayAndTitleDiv, а его — в recipeDiv
+                        arrayAndTitleDiv.append(title, ol);
+                        recipeDiv.appendChild(arrayAndTitleDiv);
+//👉 В итоге: все массивы (ингредиенты, теги, типы еды, инструкции)
+//у тебя выводятся как заголовок + нумерованный список.
+
+
+//Если значение — НЕ массив и это не картинка
+                    } else {
+                        if (recipeKey !== 'image') {
+
+                            const keyDiv = document.createElement('div');
+                            keyDiv.innerText = `${recipeKey} : ${recipe[recipeKey]}`
+                            recipeDiv.appendChild(keyDiv);
+                        }
+                    }
+
+
+
+                }
+
+                const img = document.createElement('img');
+                img.src = recipe.image;
+                recipeDiv.appendChild(img);
+
+
+                target.appendChild(recipeDiv);
+            }
+
+
+        });
+
+
+</script>
+
+</body>
+</html>
