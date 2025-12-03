@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>yHAwJOyiC</title>
+</head>
+<body>
+
+<script>
+
+// #yHAwJOyiC
+//
+// – Створити масив з 10 числових елементів. Вивести в консоль всі його елементи в циклі.-->
+
+    //если этот массив понадобится использовать еще где-то, тогда лучше сохранить его в переменную
+    const numbers = [1,2,3,4,5,6,7,8,9,10];
+    for (let num of numbers) {
+        console.log(num);
+    }
+
+    //если используется массив только один раз:
+    // for (const numbers of [1,2,3,4,5,6,7,8,9,10]) {
+    //     console.log(numbers);
+    // }
+
+//#GamKju89ob
+
+// – Створити масив з 10 строкових елементів. Вивести в консоль всі його елементи в циклі. (string)
+const strings = [
+    'apple', 'banana', 'hi', 'kiwi', 'fruit',
+    'hello', 'Alice', 'JavaScript', 'Okten', 'New Year'
+];
+for (const item of strings) {
+    console.log(item);
+}
+
+
+    // #Bm76xmg
+
+// – Створити масив з 10 елементів будь-якого типу. Вивести в консоль всі його елементи в циклі.
+
+const arr = [10, 'hello', true, 99, false, 'okten', 3.14, 'hi', null, 2025];
+for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+}
+
+
+    // #u3vmD0YJXh
+
+// – Створити масив з 10 елементів числового, стрічкового і булевого типу. За допомогою if та typeof вивести тільки булеві елементи
+const arrBoo = [1, 'hello', true, 99, false, 'okten', 3, 'hi', true, 2026];
+for (let i = 0; i < arrBoo.length; i++) {
+    if (typeof arrBoo[i] === 'boolean') {
+        console.log(arrBoo[i]);
+    }
+}
+
+
+// #9stMq2ou
+
+// – Створити масив з 10 елементів числового, стрічкового і булевого типу. За допомогою if та typeof вивести тільки числові елементи
+const arrNum = [1, 'hello', true, 99, false, 'okten', 3, 'hi', true, 2026];
+for (let i = 0; i < arrNum.length; i++) {
+    if (typeof arrNum[i] === 'number') {
+        console.log(arrNum[i]);
+    }
+}
+
+
+// #mK4pmM4
+
+// – Створити масив з 10 елементів числового, стрічкового і булевого типу. За допомогою if та typeof вивести тільки рядкові елементи
+const arrString = [1, 'hello', true, 50, false, 'okten', 3, 'hi', true, 'js'];
+//c циклом for...of
+for (const element of arrString) {
+    if (typeof element === 'string') {
+        console.log(element);
+    }
+}
+
+
+
+</script>
+</body>
+</html>
