@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>reLkOkTB29Q</title>
+</head>
+<body>
+<!--–створити масив книжок (назва, кількість сторінок, автори , жанри).
+
+– знайти найбільшу книжку.
+
+– знайти книжку/ки з найбільшою кількістю жанрів
+
+– знайти книжку/ки з найдовшою назвою
+
+– знайти книжку/ки, які писали 2 автори
+
+– знайти книжку/ки, які писав 1 автор
+
+-->
+<script>
+
+    const books = [
+        {
+            title: "Мастер и Маргарита",
+            pages: 480,
+            authors: ["Михаил Булгаков"],
+            genres: ["роман", "фантастика", "сатира"]
+        },
+        {
+            title: "Гарри Поттер и философский камень",
+            pages: 432,
+            authors: ["Джоан Роулинг"],
+            genres: ["фэнтези", "приключения"]
+        },
+        {
+            title: "Двенадцать стульев",
+            pages: 395,
+            authors: ["Илья Ильф", "Евгений Петров"],
+            genres: ["сатира", "приключения"]
+        },
+        {
+            title: "Война и мир",
+            pages: 1225,
+            authors: ["Лев Толстой"],
+            genres: ["роман", "исторический роман", "философия", "драма"]
+        },
+        {
+            title: "Собачье сердце",
+            pages: 384,
+            authors: ["Михаил Булгаков"],
+            genres: ["фантастика", "сатира"]
+        },
+        {
+            title: "Хорошие предзнаменования",
+            pages: 412,
+            authors: ["Терри Пратчетт", "Нил Гейман"],
+            genres: ["фэнтези", "комедия", "фантастика", "драма", "роман"]
+        },
+        {
+            title: "Плохие и нейтральные предзнаменования",
+            pages: 482,
+            authors: ["Терри Пратчетт", "Нил Гейман"],
+            genres: ["фэнтези", "комедия", "фантастика", "драма", "роман"]
+        }
+    ];
+
+//Если массив books пуст, то выдаст ошибку: Массив книг пуст
+    if (!books.length) {
+        console.log('Массив книг пуст');
+    } else {
+
+// – знайти найбільшу книжку
+
+        const biggestBook = books.reduce((max, currentBook) => {
+
+            if (currentBook.pages > max.pages) {
+                return currentBook;
+            }
+            return max;
+        });
+
+        console.log('Самая большая книга:', biggestBook);
+
+
+// – знайти книжку/ки з найбільшою кількістю жанрів
+
+        //reduce находит только одну книгу (первую найденную)
+        const maxGenresBook = books.reduce((max, currentBook) => {
+
+            if (currentBook.genres.length > max.genres.length) {
+                return currentBook;
+            }
+            return max;
+        });
+
+        console.log('Книга с наибольшим количеством жанров:', maxGenresBook);
+
+        //!!!!!!! Если нужно найти все книги с максимальным значением:
+
+        const maxGenres = Math.max(...books.map(book => book.genres.length));
+        const booksWithMaxGenres = books.filter(book => book.genres.length === maxGenres);
+
+        console.log('Книги с наибольшим количеством жанров:', booksWithMaxGenres);
+
+
+// – знайти книжку/ки з найдовшою назвою
+        const longestTitleBook = books.reduce((max, currentBook) => {
+
+            if (currentBook.title.length > max.title.length) {
+                return currentBook;
+            }
+            return max;
+        });
+
+        console.log('Книга с самым длинным названием:', longestTitleBook);
+
+
+// – знайти книжку/ки, які писали 2 автори
+        const booksWith2Authors = books.filter(book => book.authors.length === 2);
+
+        console.log('Книги с 2 авторами:', booksWith2Authors);
+
+
+// – знайти книжку/ки, які писав 1 автор
+        const booksWith1Author = books.filter(book => book.authors.length === 1);
+        console.log('Книги с 1 автором:', booksWith1Author);
+    }
+
+</script>
+</body>
+</html>
