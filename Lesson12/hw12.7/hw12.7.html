@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--1. Створити пустий масив та :-->
+
+<script>
+
+// <!--a. заповнити його 50 парними числами за допомоги циклу.-->
+    const evenNumbers = [];
+    //если без 0, то let i = 2
+    for (let i = 0; i < 50; i++) {
+        evenNumbers.push(i * 2);
+    }
+
+    console.log('50 парных чисел:', evenNumbers);
+
+
+<!--b. заповнити його 50 непарними числами за допомоги циклу.-->
+
+    const oddNumbers = [];
+    for (let i = 0; i < 50; i++) {
+        oddNumbers.push(i * 2 + 1);
+    }
+    console.log('50 непарных чисел:', oddNumbers);
+
+
+<!--c. Заповнити масив 20-ма рандомними числами. (Google: Generate random number JS)-->
+    const random20 = [];
+
+    for (let i = 0; i < 20; i++) {
+    //Math.random() * 100 дает дробные числа (от 1 до 100), округляем с помощью Math.floor
+        random20.push(Math.floor(Math.random() * 100));
+    }
+    console.log('20 рандомных чисел:', random20);
+
+
+<!--d. Заповнити масив 20-ма рандомними числами в діапазоні від 8 до 732 (Google: Generate random number JS)-->
+    const randomRange = [];
+
+    for (let i = 0; i < 20; i++) {
+                                 //Math.random() * (max - min) + min
+        randomRange.push(Math.floor(Math.random() * (732 - 8) + 8));
+    }
+
+    console.log('20 случайных чисел (8–732):', randomRange);
+
+
+
+
+<!--2. Вивести за допомогою console.log кожен третій елемент-->
+console.log('--- 2. Каждый третий элемент ---');
+    for (let i = 2; i < random20.length; i += 3) {
+        console.log(random20[i]);
+    }
+
+
+
+
+<!--3. Вивести за допомогою console.log кожен третій елемент, тільки якщо цей елемент є парним.-->
+console.log('--- 3. Каждый третий элемент (только парные) ---');
+    for (let i = 2; i < random20.length; i += 3) {
+       if (random20[i] % 2 === 0) {
+           console.log(random20[i]);
+       }
+    }
+
+
+
+
+<!--4. Вивести за допомогою console.log кожен третій елемент, тільки якщо цей елемент є парним, та записати їх в новий масив-->
+ console.log('--- 4. Каждый третий парный элемент в новый массив ---');
+    const thirdEven = [];
+
+    for (let i = 2; i < random20.length; i += 3) {
+       if (random20[i] % 2 === 0) {
+          thirdEven.push(random20[i]);
+       }
+    }
+
+    console.log(thirdEven);
+
+
+
+
+
+<!--5. Вивести кожен елемент масиву, сусід справа якого є парним-->
+<!--EXAMPLE: [ 1, 2, 3, 5, 7, 9, 56, 8, 67 ] -> Має бути виведено 1, 9, 56-->
+console.log('--- 5. Элементы, у которых сосед справа парный ---');
+    const exampleArr = [1, 2, 3, 5, 7, 9, 56, 8, 67];
+    for (let i = 0; i < exampleArr.length - 1; i++) {
+      if (exampleArr[i + 1] % 2 === 0) {
+          console.log(exampleArr[i]);
+      }
+    }
+
+
+
+
+// 6. Є масив з числами [100,250,50,168,120,345,188],
+// Які характеризують вартість окремої покупки.
+// Обрахувати середній чек.
+
+    console.log('--- 6. Средний чек: ---');
+    const purchases = [100, 250, 50, 168, 120, 345, 188];
+//создаю переменную sum куда буду ложить покупки, с начальным значением 0
+    let sum = 0;
+
+// перебираю каждое значение массива
+    for (const price of purchases) {
+//суммирую все покупки
+    sum += price;
+    }
+
+// средний чек = сумма всех покупок / их количество
+//Функция toFixed(2) превращает число в строку, через унарный плюс (+) превращаем обратно строку в число
+    const averageCheck = +(sum / purchases.length).toFixed(2);  //округляем число до 2 знаков после запятой
+    console.log(averageCheck);
+
+
+
+
+// 7. Створити масив з рандомними значеннями, помножити всі його елементи на 5 та
+// перемістити їх в інший масив.
+console.log('--- 7. Массив умножить на 5 и переместить в новый массив: ---');
+//создаю массив и заполняю случайными цифрами от 0-99
+    const randomArray = [];
+    for (let i = 0; i < 10; i++) {
+        randomArray.push(Math.floor(Math.random() * 100));              // числа 0–99 (округляю)
+    }
+
+    console.log('Исходный массив:', randomArray);
+
+    //создаю новый массив
+    const newArray = [];
+
+    for (let i = 0; i < randomArray.length; i++) {
+        newArray.push(randomArray[i] * 5);
+    }
+
+    console.log('Новый массив (умноженные на 5):', newArray);
+
+
+
+
+// 8. Створити масив з будь-якими значеннями (стрінги, числа, і тд…).
+// пройтись по ньому, і, якщо елемент є числом, додати його в інший масив.
+console.log('--- 8. Создать mixed массив и числа из него переложить в новый: ---');
+const mixedArray = [10, 'hello', true, 55, 'okten', 3.14, false, '42', 100];
+
+//новый массив для чисел
+const numArr = [];
+for (let i = 0; i < mixedArray.length; i++) {
+    if (typeof mixedArray[i] === 'number') {
+        numArr.push(mixedArray[i]);
+    }
+}
+console.log('Массив только из чисел:', numArr);
+
+
+
+
+</script>
+</body>
+</html>
