@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>#</title>
+</head>
+
+<body>
+
+<script>
+    // – Взяти масив з 10 чисел або створити його. Вивести в консоль тільки ті елементи,
+    //     значення яких є парними.
+
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+    for (const num of numbers) {
+        if (num % 2 === 0) {
+            console.log(num);
+        }
+    }
+
+
+    //– Взяти масив з 10 чисел або створити його. Створити 2-й порожній масив.
+    // За допомогою будь-якого циклу скопіювати значення одного масиву в інший.
+
+    const numbers2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const copiedNumbers = [];
+
+    for (const num of numbers2) {
+        copiedNumbers.push(num);
+    }
+
+    console.log('Original array:', numbers2);
+    console.log('Copied array:', copiedNumbers);
+
+
+    //– Дано масив: [ ‘a’, ‘b’, ‘c’] . За допомогою циклу for зібрати всі букви в слово.
+    const letters = ['a', 'b', 'c'];
+    //пустая строка, let потому, что значения будет меняться
+    let word = '';
+
+    for (let i = 0; i < letters.length; i++) {
+        //добавляю букву к строке
+        word += letters[i];
+    }
+
+    console.log('С помощью for:',word);
+
+    // – Дано масив: [ ‘a’, ‘b’, ‘c’] . За допомогою циклу while зібрати всі букви в слово.
+    const letters2 = ['a', 'b', 'c'];
+    let word2 = '';
+    let i = 0;
+
+    while (i < letters2.length) {
+        word2 += letters2[i];
+        i++;
+    }
+
+    console.log('С помощью while:' ,word2);
+
+    // – Дано масив: [ ‘a’, ‘b’, ‘c’] . За допомогою циклу for of зібрати всі букви в слово.
+    const letters3 = ['a', 'b', 'c'];
+    let word3 = '';
+
+    for (const letter of letters3) {
+        word3 += letter;
+    }
+
+    console.log('С помощью for of:' ,word3);
+
+
+
+
+</script>
+
+</body>
+</html>
